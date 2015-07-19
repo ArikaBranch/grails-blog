@@ -1,5 +1,6 @@
 package grails.blog
 
+//added test comment
 class Postpage {
 
 	String title
