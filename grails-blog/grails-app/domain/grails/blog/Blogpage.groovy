@@ -9,7 +9,7 @@ class Blogpage implements Comparable{
 	static hasMany = [posts:Postpage]
 
 	Homepage home
-	String title
+	String user
 	Date lastUpdated
 	SortedSet posts
 
@@ -18,7 +18,7 @@ class Blogpage implements Comparable{
 	}
 
 	static constraints = {
-		title(nullable:false, blank:false, length:1..30)
+		user(nullable:false, blank:false, length:1..30)
 		lastUpdated(nullable:true)
 	}
 
