@@ -1,9 +1,15 @@
 package grails.blog
 
-class Comment {
+class Comment implements Comparable{
+	static belongsTo = Postpage
+	Postpage post
 	String comment
+	Date dateCreated
 
-    static constraints = {
-    	comment(blank: false)
+    public int compareTo(Object o) {
+		return o.dateCreated.compareTo(dateCreated)
+	}
+	
+	static constraints = {
     }
 }

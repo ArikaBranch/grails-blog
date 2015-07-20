@@ -1,10 +1,9 @@
 package grails.blog
 
-class Homepage {
+class Blog {
 
 	String title
 
     static constraints = {
-    	title(blank: false)
     }
 }
