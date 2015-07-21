@@ -1,3 +1,5 @@
+  <!-- blogpage/list -->
+
 
 <html>
 <head>
@@ -17,11 +19,13 @@
 
 <body>
 	<div>
-		<g:form controller="Blogpage" action='save'>
-			<g:actionSubmit value='Create Blog' action='create' id="create" />
-			<h4> Blog Title: </h4>
-			<g:textField name="title" />
-		</g:form>
+
+		<g:actionSubmit value="Create" onclick="return confirm('Are you sure???')" />
+		<h3>My Blog Site</h3>
+		<table id="special_post_table">
+			<th>List of Posts</th>
+		</table>
+		
 	</div>
 </body>
 </html>

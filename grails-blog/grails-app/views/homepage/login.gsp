@@ -1,7 +1,8 @@
+<!-- homepage/login -->
 
 <html>
 <head>
-<title></title>
+<title>My Blog Site</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
@@ -15,13 +16,13 @@
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </head>
 
-<body>
-	<div>
-		<g:form controller="Blogpage" action='save'>
-			<g:actionSubmit value='Create Blog' action='create' id="create" />
-			<h4> Blog Title: </h4>
-			<g:textField name="title" />
-		</g:form>
+<body> <!-- can change these later to be more user friendly -->
+
+	<h3>My Blog Site</h3>
+	<div class="login">
+		<g:textField name="username" value="username" /> 
+		<g:passwordField name="password" value="password" />
+		<g:submitButton name="Login" />
 	</div>
 </body>
 </html>

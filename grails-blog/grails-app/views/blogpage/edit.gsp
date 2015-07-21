@@ -1,4 +1,4 @@
-
+<!-- blogpage/edit -->
 <html>
 <head>
 <title></title>
@@ -17,11 +17,12 @@
 
 <body>
 	<div>
-		<g:form controller="Blogpage" action='save'>
-			<g:actionSubmit value='Create Blog' action='create' id="create" />
-			<h4> Blog Title: </h4>
-			<g:textField name="title" />
-		</g:form>
+
+		<g:actionSubmit value="Create" onclick="return confirm('Are you sure???')"  />
+		<h3>My Blog Site</h3>
+		<g:textFieldname="blogTitle" rows="5" cols="40"/>
+		<g:submitButton name="Submit" />
+		
 	</div>
 </body>
 </html>
