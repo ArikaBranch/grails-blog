@@ -19,5 +19,9 @@ class PostpageController {
     	}
     	render(view:'edit', model:[post:post])
     }
+
+    def view = {
+        render(view:'view')
+    }
 }
 
