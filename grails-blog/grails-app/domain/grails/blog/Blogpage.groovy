@@ -5,10 +5,8 @@ import java.util.SortedSet;
 
 class Blogpage implements Comparable{
 
-	static belongsTo = Homepage
 	static hasMany = [posts:Postpage]
 
-	Homepage home
 	String title
 	Date lastUpdated
 	SortedSet posts
