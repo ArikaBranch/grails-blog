@@ -10,12 +10,21 @@ class Postpage implements Comparable {
 
 	Blogpage blog
 	String title
-	String teaser
+	String teaser = createTeaser();
 	String content
 	Date lastUpdated
 	Boolean published = false
 	SortedSet comments
 
+	public String createTeaser() {
+		String teaser = ""
+		if (content.length > 100){
+			teaser = content.substring(0, 100)
+		} else {
+			teaser = content.substring(0, content.length)
+		}
+		return teaser
+	}
 
 	public int compareTo(Object o) {
 		return o.lastUpdated.compareTo(lastUpdated)
