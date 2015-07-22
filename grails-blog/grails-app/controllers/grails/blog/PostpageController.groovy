@@ -7,5 +7,9 @@ class PostpageController {
     def list = {
     	render(view:'list')
     }
+
+    def success = {
+    	render(view:'success')
+    }
 }
 
