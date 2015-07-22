@@ -9,9 +9,12 @@ stacktrace.log
 /*DB.*
 /cobertura.ser
 .DS_Store
-/target/
+/target
 /out/
 /web-app/plugins
 /web-app/WEB-INF/classes
 /.link_to_grails_plugins/
 /target-eclipse/
+/src
+/target/*
+*/.idea/
