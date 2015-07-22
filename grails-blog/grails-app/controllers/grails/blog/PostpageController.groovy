@@ -13,7 +13,7 @@ class PostpageController {
     }
 
     def edit = {
-    	def post = {Postpage}.get(params.id)
+    	def post = Postpage.get(params.id)
     	if(!post) {
     		post = new Postpage()
     	}

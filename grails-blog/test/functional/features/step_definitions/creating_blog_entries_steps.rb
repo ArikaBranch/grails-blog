@@ -17,5 +17,6 @@ Then (/^I am notified that the blog post was successfully added$/) do
   expect(post_is_valid?).to be true
 end
 And (/^the newly added blog post is at the top of the recent posts list$/) do
+  go_to_post_list_page
   expect(new_post_title).to eq("Post1")
 end
