@@ -5,7 +5,9 @@ class PostpageController {
     //def scaffold = true
 
     def list = {
-    	render(view:'list')
+        new Postpage(title:"Post Title", teaser:"Post teaser", content:"Post content").save();
+        def post = Postpage.list()
+        [postList:post]
     }
 
     def success = {
@@ -22,6 +24,12 @@ class PostpageController {
 
     def view = {
         render(view:'view')
+    }
+
+    def index = {
+        def posts = Postpage.list()
+        [post:posts]
+
     }
 }
 

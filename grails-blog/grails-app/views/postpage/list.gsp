@@ -25,7 +25,13 @@
 			<g:actionSubmit value="Search" action="search"/>
 
 			<table id="special_post_table">
-				<th>List of Posts</th>
+				<thead>
+				</thead>
+				<tbody>
+					<g:each in="${postList}" var="post">
+						<tr><td>${post.title}, ${post.teaser}, ${post.content} </td></tr>
+					</g:each>
+				</tbody>
 			</table>
 
 		</g:form>
