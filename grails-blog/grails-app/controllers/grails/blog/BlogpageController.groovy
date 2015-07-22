@@ -2,14 +2,14 @@ package grails.blog
 
 class BlogpageController {
 
-	 def scaffold = true
+	 //def scaffold = true
 
-    def create = {
+    def edit = {
     	def blog = Blogpage.get(params.id)
     	if(!blog) {
     		blog = new Blogpage()
     	}
-    	render(view:'create', model:[blog:blog])
+    	render(view:'edit', model:[blog:blog])
     }
 
     def blogList = {
@@ -17,17 +17,7 @@ class BlogpageController {
     }
 
     def list = {
-    	render(view:'list', model:[blogs:Blogpage.list(sort:'lastUpdated', order:'desc'), blogCount:Blogpage.count()])
-
-        //not correct code, just flushing out logic
-        def blog = loadBlog(params.id)
-        if(blog.create(true)){
-            redirect(action:'edit')
-        }
-    }
-
-    def view = {
-    	render(view:'view')
+    	render(view:'list', model:[blogs:Blogpage.list(sort:'lastUpdated', order:'desc'), blogCount:Blogpage.count()])  
     }
 
     private loadBlog(id) {
