@@ -17,7 +17,10 @@ class BlogpageController {
     }
 
     def list = {
-    	render(view:'list', model:[blogs:Blogpage.list(sort:'lastUpdated', order:'desc'), blogCount:Blogpage.count()])  
+        def blog = Blogpage.list()
+        [blogList:blog]
+
+    	render(view:'list', model:[blogList:Blogpage.list(sort:'lastUpdated', order:'desc'), blogCount:Blogpage.count()])  
     }
 
     private loadBlog(id) {

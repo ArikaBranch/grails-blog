@@ -17,13 +17,15 @@
 
 <body>
 	<div>
-		<h3>Actual Post Title</h3>
-	</div>
-	<div>
+		
+
+		<div>
+			<h3>${post.title}</h3>
+		</div>
 		<g:form controller="postpage">
-			<g:actionSubmit value="Edit" action="edit"/><br>
+			<g:link controller="postpage" action="edit" id="${post.id}"><button type="button">Edit</button></g:link><br>
 			<div>
-				<p> post content </p>
+				<p> ${post.content}</p>
 			</div> <br>
 
 			<g:actionSubmit value="Create Comment" action="" />
@@ -36,10 +38,8 @@
 			<g:textField name="comment_author" /><br>
 			<label>Comment:  </label>
 			<g:textArea name="comment_area" />
-
-
-
 		</g:form>
+		
 	</div>
 </body>
 </html>

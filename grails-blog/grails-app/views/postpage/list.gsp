@@ -14,6 +14,9 @@
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </head>
+<style type="text/css">
+	img { max-width: 100% }
+</style>
 
 <body>
 	<div>
@@ -22,14 +25,26 @@
 			<h3>My Blog Site</h3>
 
 			<g:textField name="Search" value="search" />
-			<g:actionSubmit value="Search" action="search"/>
+			<g:actionSubmit value="Search" action="search"/><br/>
 
 			<table id="special_post_table">
+				<label>List of Posts</label><br/>
 				<thead>
+					<tr>Title</tr>
+					<tr>Teaser</tr>
+					<tr>Content</tr>
+					<tr>LastUpdated</tr>
+					<tr>Published</tr>
 				</thead>
 				<tbody>
 					<g:each in="${postList}" var="post">
-						<tr><td>${post.title}, ${post.teaser}, ${post.content} </td></tr>
+						<tr>
+							<td><g:link controller="postpage" action="view" id="${post.id}" params="[title: post.title, content:post.content]">${post.title}</g:link></td>
+							<td>${post.teaser}</td>
+							<td>${post.content}</td>
+							<td>${post.lastUpdated}</td>
+							<td>${post.published}</td>
+						</tr>
 					</g:each>
 				</tbody>
 			</table>

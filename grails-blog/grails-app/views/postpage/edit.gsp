@@ -17,13 +17,16 @@
 
 <body>
 	<div>
-		<g:form controller="postpage">
-			<label> Post Title:  <label>
-			<g:textField name="postTitle"/>
-			<label> Post Content: </label>
-			<g:textArea name="psot" rows="5" cols="40"/>
-
-			<g:actionSubmit value="Submit" action="success"/>
+		<g:form controller="postpage" action="save">
+			<div>
+				<label> Post Title:  <label>
+				<g:textField name="postTitle" value="${post.title}"/><br/>
+			</div>
+			<div>
+				<label> Post Content: </label>
+				<g:textArea name="post" value="${post.content}" rows="5" cols="40"/>
+			</div>
+			<g:actionSubmit value="Submit" action="save"/>
 		</g:form>
 	</div>
 </body>

@@ -8,6 +8,7 @@ class Postpage implements Comparable {
 	static belongsTo = Blogpage
 	static hasMany = [comments:Comment]
 
+	Blogpage blog
 	String title
 	String teaser //= createTeaser()
 	String content

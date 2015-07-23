@@ -21,7 +21,14 @@
 		<g:actionSubmit value="Create" action="edit"/>
 		<h3>My Blog Site</h3>
 		<table id="special_post_table">
-			<th>List of Posts</th>
+			<label>List of Blogs</label><br/>
+				<thead>
+				</thead>
+				<tbody>
+					<g:each in="${blogList}" var="blog">
+						<tr><td><g:link controller="postpage" action="list" id="${blog.id}" params="[title: blog.title]">${blog.title}</g:link> </td></tr>
+					</g:each>
+				</tbody>
 		</table>
 		</g:form>
 		

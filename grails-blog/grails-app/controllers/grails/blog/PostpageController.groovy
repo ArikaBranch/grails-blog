@@ -3,11 +3,16 @@ package grails.blog
 class PostpageController {
 
     //def scaffold = true
+   
 
     def list = {
-        new Postpage(title:"Post Title", teaser:"Post teaser", content:"Post content").save();
-        def post = Postpage.list()
+
+        Blogpage blog = Blogpage.findByTitle(params.title)
+
+        def post = Postpage.findAllByBlog(blog, [max:10]);
         [postList:post]
+
+        render(view:'list', model:[postList:post])
     }
 
     def success = {
@@ -23,13 +28,30 @@ class PostpageController {
     }
 
     def view = {
-        render(view:'view')
+        def post = Postpage.get(params.id)
+       render(view:'view', model:[post:post])
     }
 
-    def index = {
-        def posts = Postpage.list()
-        [post:posts]
+    def save = {
+        //hack job here, may get refactored - necessary to get the post to save on edit
+        def editPost = params
+        def post = loadPost(params.id)
+        post.title = editPost.title
+        post.content = editPost.content
 
+        if(post.save()) {
+            redirect(action:'success')
+        } else {
+            render('error')
+        }
+    }
+
+    private loadPost(id) {
+        def post = new Postpage();
+        if(id) {
+            post = Postpage.get(id)
+        }
+        return post
     }
 }
 
