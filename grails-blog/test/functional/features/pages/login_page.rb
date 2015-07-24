@@ -1,4 +1,8 @@
+require 'page-object'
+
 class LoginPage
+  include PageObject
+
 
   page_url "http://localhost:8080/grails-blog/homepage/login"
 

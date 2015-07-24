@@ -24,8 +24,8 @@
 		</div>
 		<g:form controller="postpage">
 			<g:link controller="postpage" action="edit" id="${post.id}"><button type="button">Edit</button></g:link><br>
-			<div>
-				<p> ${post.content}</p>
+			<div id="post_content">
+				 ${post.content}
 			</div> <br>
 
 			<g:actionSubmit value="Create Comment" action="" />

@@ -27,7 +27,7 @@
 			<label for='password'>Password: </label>
 			<g:passwordField name="password" value="password" />
 			<br/>
-			<g:actionSubmit value="Login" action="list"/>
+			<g:actionSubmit value="Login" action="list" id="login"/>
 		</g:form>
 	</div>
 </body>

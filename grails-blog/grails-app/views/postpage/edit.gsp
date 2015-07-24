@@ -31,7 +31,7 @@
 				<label> Post Content: </label>
 				<g:textArea name="post" value="${post.content}" rows="5" cols="40"/>
 			</div>
-			<g:actionSubmit value="Submit" action="save">
+			<g:actionSubmit id="submit_new_post" value="Submit" action="save">
 			</g:actionSubmit>
 			
 		</g:form>

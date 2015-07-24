@@ -18,27 +18,27 @@ class BootStrap {
 
 		
 		
-		new Postpage(blog: blog1,
+		new Postpage(blog: blog4,
 					title:"BootStrap Post1",
 					teaser:"BootStrap teaser1",
 					content:"BootStrap content1").save(failOnError: true);
 
-		new Postpage(blog: blog1,
+		new Postpage(blog: blog4,
 					title:"BootStrap Post2",
 					teaser:"BootStrap teaser2",
 					content:"BootStrap content2").save(failOnError: true);
 
-		new Postpage(blog: blog2,
+		new Postpage(blog: blog4,
 					title:"BootStrap Post3",
 					teaser:"BootStrap teaser3",
 					content:"BootStrap content3").save(failOnError: true);
 
-		new Postpage(blog: blog2,
+		new Postpage(blog: blog4,
 					title:"BootStrap Post4",
 					teaser:"BootStrap teaser4",
 					content:"BootStrap content4").save(failOnError: true);
 
-		new Postpage(blog: blog3,
+		new Postpage(blog: blog4,
 					title:"BootStrap Post5",
 					teaser:"BootStrap teaser5",
 					content:"BootStrap content5").save(failOnError: true);
@@ -58,12 +58,12 @@ class BootStrap {
 					teaser:"BootStrap teaser8",
 					content:"BootStrap content8").save(failOnError: true);
 
-		new Postpage(blog: blog7,
+		new Postpage(blog: blog4,
 					title:"BootStrap Post9",
 					teaser:"BootStrap teaser9",
 					content:"BootStrap content9").save(failOnError: true);
 
-		new Postpage(blog: blog9,
+		new Postpage(blog: blog4,
 					title:"BootStrap Post10",
 					teaser:"BootStrap teaser10",
 					content:"BootStrap content10").save(failOnError: true);

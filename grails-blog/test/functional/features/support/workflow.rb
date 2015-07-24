@@ -8,15 +8,17 @@ def go_to_blog_view_page
 end
 
 def go_to_post_list_page
-  visit_page PostListPage
+  on_page BlogListPage do |page|
+    page.click_blog_link
+  end
 end
 
 def get_tenth_post_title
-  @browser.table.tr(:index, 10).td.text
+  @browser.table.tbody.tr(:index, 9).td.text
 end
 
 def eleventh_post_exists?
-  @browser.table.tr(:index, 11).present?
+  @browser.table.tbody.tr(:index, 10).td.present?
 end
 
 def click_a_blog_post
@@ -26,7 +28,7 @@ def click_a_blog_post
 end
 
 def get_post_content
-  on_page PostViewpage do |page|
+  on_page PostViewPage do |page|
     page.return_post_content
   end
 end
@@ -57,8 +59,8 @@ end
 
 def login_as_blogger
   on_page LoginPage do |page|
-    page.input_username("blogger")
-    page.input_blogger_password("password")
+    page.input_username= "blogger"
+    page.input_blogger_password= "password"
     page.click_login_button
   end
 end
@@ -68,19 +70,20 @@ def create_new_post
     list_page.click_create_new_post_button
   end
   on_page PostEditPage do |edit_page|
-    edit_page.input_post_title
-    edit_page.input_post_content
+    edit_page.input_post_title="New Test Post"
+    edit_page.input_post_teaser="New Test Teaser"
+    edit_page.input_post_content="New Test Content"
   end
 end
 
 def submit_post
   on_page PostEditPage do |page|
-    page.click_submit
+    page.click_submit_new_post
   end
 end
 
 def post_is_valid?
-  @browser.text.include?("sucess")
+  @browser.text.include?("success")
 end
 
 def new_post_title
@@ -105,3 +108,8 @@ def add_my_comment
   end
 end
 
+def click_ok
+  on_page PostSuccessPage do |page|
+    page.click_ok_button
+  end
+end

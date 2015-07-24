@@ -1,4 +1,7 @@
+require 'page-object'
+
 class PostViewPage
+  include PageObject
 
   page_url "http:/localhost:8080/grails-log/postpage/view"
 
@@ -7,6 +10,8 @@ class PostViewPage
   button(:click_add_comment_button, :id => "add_comment")
   text_field(:input_author_info, :id => "comment_author")
   text_area(:input_comment, :id => "comment_area")
+
+
 
   def first_comment
     coment_table_element.collect do |comment|

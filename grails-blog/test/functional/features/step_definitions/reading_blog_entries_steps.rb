@@ -1,14 +1,15 @@
 #Scenario: View Recent Blog Posts
 Given (/^my favorite blogger has been very active$/) do
-  go_to_blog_view_page
+
 end
 
 When (/^I visit the blog for my favorite blogger$/) do
+  go_to_blog_view_page
   go_to_post_list_page
 end
 
-Then (/^I should see a summary of my favorite bloggers 10 most recent posts in reverse order$/)do
-  expect(get_tenth_post_title).to eq("Post 10")
+Then (/^I should see a summary of my favorite blogger's 10 most recent posts in reverse order$/)do
+  expect(get_tenth_post_title).to eq("BootStrap Post10")
   expect(eleventh_post_exists?).to be false
 end
 
@@ -20,7 +21,7 @@ When (/^I choose a blog post$/) do
 end
 
 Then (/^I should see the blog post$/) do
-  expect(get_post_content).to eq("test post content")
+  expect(get_post_content.text.include?("BootStrap content1")).to be true
 end
 
 #Scenario: Search for Blog Post
