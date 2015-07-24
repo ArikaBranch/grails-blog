@@ -17,16 +17,23 @@
 
 <body>
 	<div>
-		<g:form controller="postpage" action="save">
+		<g:form controller="postpage">
+			<g:hiddenField name="blogId" value="${post.blog.id}"/>
 			<div>
 				<label> Post Title:  <label>
 				<g:textField name="postTitle" value="${post.title}"/><br/>
 			</div>
 			<div>
+				<label> Post Teaser:  <label>
+				<g:textField name="postTeaser" value="${post.teaser}"/><br/>
+			</div>
+			<div>
 				<label> Post Content: </label>
 				<g:textArea name="post" value="${post.content}" rows="5" cols="40"/>
 			</div>
-			<g:actionSubmit value="Submit" action="save"/>
+			<g:actionSubmit value="Submit" action="save">
+			</g:actionSubmit>
+			
 		</g:form>
 	</div>
 </body>

@@ -21,7 +21,7 @@
 <body>
 	<div>
 		<g:form controller="postpage">
-			<g:actionSubmit value="Create" action="edit"/>
+			<g:link contoller="postpage" action="edit" params="[blogId:"${params.id}"]"><button type=button>Create New Post</button></g:link>
 			<h3>My Blog Site</h3>
 
 			<g:textField name="Search" value="search" />

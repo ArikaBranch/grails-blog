@@ -16,14 +16,15 @@ class PostpageController {
     }
 
     def success = {
+
     	render(view:'success')
     }
 
     def edit = {
     	def post = Postpage.get(params.id)
-    	if(!post) {
-    		post = new Postpage()
-    	}
+    	if (!post){
+            post = new Postpage(blog:Blogpage.get(params.blogId))
+        }
     	render(view:'edit', model:[post:post])
     }
 
@@ -36,13 +37,15 @@ class PostpageController {
         //hack job here, may get refactored - necessary to get the post to save on edit
         def editPost = params
         def post = loadPost(params.id)
-        post.title = editPost.title
-        post.content = editPost.content
+        post.blog = Blogpage.findById(editPost.blogId)
+        post.title = editPost.postTitle
+        post.content = editPost.post
+        post.teaser = editPost.postTeaser
 
-        if(post.save()) {
-            redirect(action:'success')
+        if(post.save(failOnError:true, flush:true)) {
+            redirect(action:'success', model:[post:post])
         } else {
-            render('error')
+            post.errors.allErrors()
         }
     }
 

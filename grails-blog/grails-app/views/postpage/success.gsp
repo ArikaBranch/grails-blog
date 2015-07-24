@@ -18,9 +18,9 @@
 		<p id="success">
 			Your post was an unmitigated success!
 		</p>
-		<g:form controller="postpage" >
-			<g:actionSubmit value="OK" action="list"/>
-		</g:form>
+		
+			<g:link value="OK" url="[controller:'postpage', action:'list']"><button type=button>OK</button></g:link>
+		
 	</div>
 </body>
 </html>
