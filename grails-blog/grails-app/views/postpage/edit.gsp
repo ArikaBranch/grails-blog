@@ -17,7 +17,7 @@
 
 <body>
 	<div>
-		<g:form controller="postpage" action="success" params="${params}">
+		<g:form controller="postpage">
 			<g:hiddenField name="blogId" value="${post.blog.id}"/>
 			<g:hiddenField name="id" value="${post.id}"/>
 			<div>

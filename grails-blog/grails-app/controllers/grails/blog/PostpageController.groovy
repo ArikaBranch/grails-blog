@@ -1,23 +1,32 @@
 package grails.blog
+import java.util.Date
+
 
 class PostpageController {
 
     //def scaffold = true
-   
+    def search = {
+
+        Blogpage blog = Blogpage.get(params.blogId)
+        def post = Postpage.findAllByTitle(params.search)
+        [postList:post]
+
+        render(view:'list', model:[postList:Postpage.list(sort:'lastUpdated', order:'desc')])
+    }
 
     def list = {
 
-        Blogpage blog = Blogpage.findByTitle(params.title)
+        Blogpage blog = Blogpage.get(params.id)
 
         def post = Postpage.findAllByBlog(blog, [max:10]);
         [postList:post]
 
-        render(view:'list', model:[postList:post])
+        render(view:'list', model:[postList:Postpage.list(sort:'lastUpdated', order:'desc')])
     }
 
     def success = {
         def post = Postpage.get(params.id)
-        render(view:'success', model:[post:post])
+        redirect(action:'list', id:post.blog.id);
     }
 
     def edit = {
@@ -41,9 +50,10 @@ class PostpageController {
         post.title = editPost.postTitle
         post.content = editPost.post
         post.teaser = editPost.postTeaser
+        post.lastUpdated = new Date()
 
         if(post.save(failOnError:true, flush:true)) {
-            redirect(action:'success', model:[post:post])
+            render(view:'success', model:[post:post])
         } else {
             post.errors.allErrors()
         }

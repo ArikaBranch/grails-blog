@@ -39,7 +39,7 @@ class BlogpageController {
  		if(blog.save(true)) {
  			redirect(action:'view')
  		} else {
- 			redirect(action:'create')
+ 			redirect(action:'edit')
  		}
     } 
 

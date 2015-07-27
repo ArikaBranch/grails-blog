@@ -26,7 +26,7 @@
 				</thead>
 				<tbody>
 					<g:each in="${blogList}" var="blog">
-						<tr><td><g:link controller="postpage" action="list" id="${blog.id}" params="[title: blog.title]">${blog.title}</g:link> </td></tr>
+						<tr><td><g:link controller="postpage" action="list" id="${blog.id}">${blog.title}</g:link> </td></tr>
 					</g:each>
 				</tbody>
 		</table>

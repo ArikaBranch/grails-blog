@@ -20,13 +20,13 @@
 
 <body>
 	<div>
-		<g:form controller="postpage">
+		<g:form controller="postpage" action="search">
 			<g:link contoller="postpage" action="edit" params="[blogId:"${params.id}"]"><button type=button>Create New Post</button></g:link>
 			<h3>My Blog Site</h3>
 
-			<g:textField name="Search" value="search" />
-			<g:actionSubmit value="Search" action="search"/><br/>
-
+			<g:textField name="search" value="search" />
+			<g:actionSubmit value="Search" action="search" />
+		</g:form>
 			<table id="special_post_table">
 				<label>List of Posts</label><br/>
 				<thead>
@@ -46,8 +46,6 @@
 					</g:each>
 				</tbody>
 			</table>
-
-		</g:form>
 	</div>
 </body>
 </html>

@@ -87,7 +87,8 @@ def post_is_valid?
 end
 
 def new_post_title
-  @browser.table.tr(:index, 1).td.text
+  @browser.table(:id, "special_post_table").tbody.tr(:index, 0).td(:index, 0).flash
+  @browser.table(:id, "special_post_table").tbody.tr(:index, 0).td(:index, 0).text
 end
 
 def post_page_url

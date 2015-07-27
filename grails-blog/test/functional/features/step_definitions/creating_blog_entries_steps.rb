@@ -18,5 +18,5 @@ Then (/^I am notified that the blog post was successfully added$/) do
 end
 And (/^the newly added blog post is at the top of the recent posts list$/) do
   click_ok
-  expect(new_post_title).to eq("Post1")
+  expect(new_post_title).to eq("New Test Post")
 end
