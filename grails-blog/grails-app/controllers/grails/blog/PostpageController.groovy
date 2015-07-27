@@ -16,8 +16,8 @@ class PostpageController {
     }
 
     def success = {
-
-    	render(view:'success')
+        def post = Postpage.get(params.id)
+        render(view:'success', model:[post:post])
     }
 
     def edit = {

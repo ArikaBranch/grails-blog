@@ -34,7 +34,6 @@
 					<tr>Teaser</tr>
 					<tr>Content</tr>
 					<tr>LastUpdated</tr>
-					<tr>Published</tr>
 				</thead>
 				<tbody>
 					<g:each in="${postList}" var="post">
@@ -42,8 +41,7 @@
 							<td><g:link controller="postpage" action="view" id="${post.id}" params="[title: post.title, content:post.content]">${post.title}</g:link></td>
 							<td>${post.teaser}</td>
 							<td>${post.content}</td>
-							<td>${post.lastUpdated}</td>
-							<td>${post.published}</td>
+							<td>${post.lastUpdated}</td>		
 						</tr>
 					</g:each>
 				</tbody>

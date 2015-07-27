@@ -17,8 +17,9 @@
 
 <body>
 	<div>
-		<g:form controller="postpage">
+		<g:form controller="postpage" action="success" params="${params}">
 			<g:hiddenField name="blogId" value="${post.blog.id}"/>
+			<g:hiddenField name="id" value="${post.id}"/>
 			<div>
 				<label> Post Title:  <label>
 				<g:textField name="postTitle" value="${post.title}"/><br/>
@@ -33,7 +34,6 @@
 			</div>
 			<g:actionSubmit id="submit_new_post" value="Submit" action="save">
 			</g:actionSubmit>
-			
 		</g:form>
 	</div>
 </body>

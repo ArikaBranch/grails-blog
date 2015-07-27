@@ -16,9 +16,8 @@
 <body>
 	<div>
 		<p id="success">
-			Your post was an unmitigated success!
+			Your ${post.title} was an unmitigated success!
 		</p>
-		
 			<g:link value="OK" url="[controller:'postpage', action:'list']" ><button type="button" id="ok">OK</button></g:link>
 		
 	</div>

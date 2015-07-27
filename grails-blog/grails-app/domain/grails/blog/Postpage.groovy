@@ -13,7 +13,6 @@ class Postpage implements Comparable {
 	String teaser //= createTeaser()
 	String content
 	Date lastUpdated
-	Boolean published = false
 	SortedSet comments
 
 	/* public String createTeaser() {
@@ -35,6 +34,5 @@ class Postpage implements Comparable {
 		teaser(length:0..100)
 		content(nullable:false, blank:false)
 		lastUpdated(nullable:true)
-		published(nullable:false)
 	}
 }
