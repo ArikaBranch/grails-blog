@@ -4,7 +4,7 @@ class BlogpageController {
 
 	 //def scaffold = true
 
-    def edit = {
+    def edit() {
     	def blog = Blogpage.get(params.id)
     	if(!blog) {
     		blog = new Blogpage()
@@ -12,11 +12,11 @@ class BlogpageController {
     	render(view:'edit', model:[blog:blog])
     }
 
-    def blogList = {
+    def blogList() {
     	[blogs:Blogpage.list(params), blogCount:Blogpage.count()]
     }
 
-    def list = {
+    def list() {
         def blog = Blogpage.list()
         [blogList:blog]
 
@@ -31,7 +31,7 @@ class BlogpageController {
     	return blog
     }
 
-    def save = {
+    def save() {
     	def editBlog = params
  		def blog = loadBlog(params.id)
  		blog.title = editBlog.title
