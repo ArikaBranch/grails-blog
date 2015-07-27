@@ -35,7 +35,7 @@ end
 
 def input_text_for_search
   on_page PostListPage do |page|
-    page.search_for_post("post")
+    page.input_search= "BootStrap Post1"
   end
 end
 

@@ -33,5 +33,10 @@ When (/^I search for a blog post$/) do
 end
 
 Then (/I should see posts with that value in the title$/) do
-  expect(get_post_titles).to each include?("post")
+  get_post_titles.each do |post|
+    #page object adding additional table rows that were empty ensuring content exisits
+    if(post != "")
+      expect(post.include?("BootStrap Post1")).to be true
+    end
+  end
 end

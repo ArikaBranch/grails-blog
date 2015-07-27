@@ -15,7 +15,7 @@ class PostpageController {
 
     def list() {
 
-        Blogpage blog = Blogpage.findByTitle(params.title)
+        Blogpage blog = Blogpage.get(params.id)
         def posts = Postpage.findAllByBlog(blog, [max:10, sort:"lastUpdated", order:"desc"])
         [postList:posts]
 

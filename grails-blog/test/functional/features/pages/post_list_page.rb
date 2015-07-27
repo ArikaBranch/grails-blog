@@ -9,6 +9,7 @@ class PostListPage
   link(:click_post_link, :text => "BootStrap Post1")
   button(:click_search, :text => "Search")
   button(:click_create_new_post_button, :text => "Create New Post")
+  text_field(:input_search, :id => "search")
 
   def post_list
     post_list_table_element.collect do |post|
