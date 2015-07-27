@@ -5,31 +5,29 @@ import java.util.Date
 class PostpageController {
 
     //def scaffold = true
-    def search = {
+    def search() {
 
         Blogpage blog = Blogpage.get(params.blogId)
-        def post = Postpage.findAllByTitle(params.search)
-        [postList:post]
-
-        render(view:'list', model:[postList:Postpage.list(sort:'lastUpdated', order:'desc')])
+        def posts = Postpage.findAllByTitleLikeAndBlog("%"+params.search+"%", blog, [sort:"lastUpdated", order:"desc"])
+        [postList:posts]
+        render(view:'list', model:[postList:posts])
     }
 
-    def list = {
+    def list() {
 
-        Blogpage blog = Blogpage.get(params.id)
+        Blogpage blog = Blogpage.findByTitle(params.title)
+        def posts = Postpage.findAllByBlog(blog, [max:10, sort:"lastUpdated", order:"desc"])
+        [postList:posts]
 
-        def post = Postpage.findAllByBlog(blog, [max:10]);
-        [postList:post]
-
-        render(view:'list', model:[postList:Postpage.list(sort:'lastUpdated', order:'desc')])
+        render(view:'list', model:[postList:posts])
     }
 
-    def success = {
+    def success() {
         def post = Postpage.get(params.id)
         redirect(action:'list', id:post.blog.id);
     }
 
-    def edit = {
+    def edit() {
     	def post = Postpage.get(params.id)
     	if (!post){
             post = new Postpage(blog:Blogpage.get(params.blogId))
@@ -37,12 +35,12 @@ class PostpageController {
     	render(view:'edit', model:[post:post])
     }
 
-    def view = {
+    def view() {
         def post = Postpage.get(params.id)
        render(view:'view', model:[post:post])
     }
 
-    def save = {
+    def save() {
         //hack job here, may get refactored - necessary to get the post to save on edit
         def editPost = params
         def post = loadPost(params.id)

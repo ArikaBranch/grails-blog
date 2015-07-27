@@ -27,6 +27,12 @@ class BootStrap {
 
 		sleep(10)
 		
+		new Postpage(blog: blog1,
+					title:"BootStrap Post1",
+					teaser:"BootStrap teaser1",
+					content:"BootStrap content1").save(failOnError: true);
+		sleep(10)
+
 		new Postpage(blog: blog4,
 					title:"BootStrap Post1",
 					teaser:"BootStrap teaser1",
