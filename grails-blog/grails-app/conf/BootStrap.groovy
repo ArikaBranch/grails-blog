@@ -1,5 +1,6 @@
 import grails.blog.Blogpage
 import grails.blog.Postpage
+import grails.blog.Comment
 
 
 class BootStrap {
@@ -27,7 +28,7 @@ class BootStrap {
 
 		sleep(10)
 		
-		new Postpage(blog: blog1,
+		def post1 = new Postpage(blog: blog1,
 					title:"BootStrap Post1",
 					teaser:"BootStrap teaser1",
 					content:"BootStrap content1").save(failOnError: true);
@@ -97,6 +98,15 @@ class BootStrap {
 					teaser:"BootStrap teaser10",
 					content:"BootStrap content10").save(failOnError: true);
 		sleep(10)
+
+		new Comment(post: post1,
+					author:"John",
+					comment:"test comment").save(failOnError: true);
+		sleep(10)
+
+		new Comment(post: post1,
+					author:"John",
+					comment:"test comment2").save(failOnError: true);
 		
     }
     def destroy = {

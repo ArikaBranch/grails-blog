@@ -26,18 +26,25 @@
 				 ${post.content}
 			</div> <br>
 
-			<g:formRemote name="commentForm" update="renderedComments" url="[controller:'postpage', action:'showResults']">
-				<label for="author">Author: </label>
-				<input type="text" name="author" ></input><br/>
-				<label for="author">Comment: </label><br/>
-				<textarea name="comment"></textarea><br/>
-				<g:submitButton name="update" value="Add Comment">
-				</g:submitButton>			
-			</g:formRemote>
+		</g:form>
+			<!--g:actionSubmit value="Create Comment" action="" / -->
+			<table id="special_comment_table">
+				<th>List of Comments</th>
+				<tbody>
+					
+				</tbody>
+			</table><br>
 
-			<div id="renderedComments">
-				<g:render template="commentTemplate"></g:render>
-			</div>		
-	</div>
+			<h5>Create Comment</h5><br>
+
+				<g:form  action="addComment">
+					Author: <input type="text" name="author"><br/>
+					Comment: <input type="text" name="comment"/><br/>
+					<g:submitToRemote url="[controller: 'comment', action:'addComment']" update="comment_list" />
+				</g:form>	
+		
+	<div id="comment_list">
+					</div>
+			</div>
 </body>
 </html>
