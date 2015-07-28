@@ -11,7 +11,7 @@
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
-
+<g:javascript library="jquery" />
 </head>
 
 <body>
@@ -21,24 +21,23 @@
 		<div>
 			<h3>${post.title}</h3>
 		</div>
-		<g:form controller="postpage">
 			<g:link controller="postpage" action="edit" id="${post.id}"><button type="button">Edit</button></g:link><br>
 			<div id="post_content">
 				 ${post.content}
 			</div> <br>
 
-			<g:actionSubmit value="Create Comment" action="" />
-			<table id="special_comment_table">
-				<th>List of Comments</th>
-			</table><br>
+			<g:formRemote name="commentForm" update="renderedComments" url="[controller:'postpage', action:'showResults']">
+				<label for="author">Author: </label>
+				<input type="text" name="author" ></input><br/>
+				<label for="author">Comment: </label><br/>
+				<textarea name="comment"></textarea><br/>
+				<g:submitButton name="update" value="Add Comment">
+				</g:submitButton>			
+			</g:formRemote>
 
-			<h5>Create Comment</h5><br>
-			<label>Author:  </label>
-			<g:textField name="comment_author" /><br>
-			<label>Comment:  </label>
-			<g:textArea name="comment_area" />
-		</g:form>
-		
+			<div id="renderedComments">
+				<g:render template="commentTemplate"></g:render>
+			</div>		
 	</div>
 </body>
 </html>
