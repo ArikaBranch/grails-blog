@@ -4,6 +4,7 @@ class Comment implements Comparable{
 	static belongsTo = Postpage
 	
 	Postpage post
+	String author
 	String comment
 	Date dateCreated
 

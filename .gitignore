@@ -31,3 +31,4 @@
 
 # "temporary" build files
 /target
+grails-blog/target/stacktrace.log
