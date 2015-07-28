@@ -1,16 +1,26 @@
 package grails.blog
 import java.util.Date
+import grails.converters.JSON
 
 
 class PostpageController {
 
     //def scaffold = true
+    def getAllComments() {
+        def comments = Comment.list()
+        def response = []
+        comments.each {
+            response << "${it}"
+        }
+        render response as JSON
+    }
+
     def search() {
 
         Blogpage blog = Blogpage.get(params.blogId)
         def posts = Postpage.findAllByTitleLikeAndBlog("%"+params.search+"%", blog, [sort:"lastUpdated", order:"desc"])
         [postList:posts]
-        render(view:'list', model:[postList:posts])
+        render(view:'list', model:[postList:posts, blog:blog])
     }
 
     def list() {
@@ -18,8 +28,7 @@ class PostpageController {
         Blogpage blog = Blogpage.get(params.id)
         def posts = Postpage.findAllByBlog(blog, [max:10, sort:"lastUpdated", order:"desc"])
         [postList:posts]
-
-        render(view:'list', model:[postList:posts])
+        render(view:'list', model:[postList:posts, blog:blog])
     }
 
     def success() {
@@ -37,7 +46,7 @@ class PostpageController {
 
     def view() {
         def post = Postpage.get(params.id)
-       render(view:'view', model:[post:post])
+        render(view:'view', model:[post:post])
     }
 
     def save() {

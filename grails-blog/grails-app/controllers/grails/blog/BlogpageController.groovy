@@ -12,10 +12,6 @@ class BlogpageController {
     	render(view:'edit', model:[blog:blog])
     }
 
-    def blogList() {
-    	[blogs:Blogpage.list(params), blogCount:Blogpage.count()]
-    }
-
     def list() {
         def blog = Blogpage.list()
         [blogList:blog]

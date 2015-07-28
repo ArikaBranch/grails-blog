@@ -19,10 +19,10 @@
 <body>
 	<div>
 		<g:form controller="postpage" action="search">
-			<g:link contoller="postpage" action="edit" params="[blogId:"${params.id}"]"><button type=button>Create New Post</button></g:link>
-			<h3>My Blog Site</h3>
-			<g:hiddenField name="blogId" value="${params.id}"/>
-			<g:textField name="search" value="search" />
+			<g:link contoller="postpage" action="edit" params="[blogId:"${blog.id}"]"><button type=button>Create New Post</button></g:link>
+			<h3>${blog.title}</h3>
+			<g:hiddenField name="blogId" value="${blog.id}"/>
+			<g:textField name="search" value="" />
 			<g:actionSubmit value="Search" action="search"/>
 		</g:form>
 			<table id="special_post_table">
