@@ -1,4 +1,3 @@
 <html>
-<div>${comment?.author}</div>
-<div>${comment?.comment}</div>
+<tr><td>${comment?.author}</td> <td>${comment?.comment}</td></tr>
 </html>

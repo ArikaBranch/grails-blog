@@ -13,5 +13,6 @@ class Comment implements Comparable{
 	}
 	
 	static constraints = {
+		comment(length:0..240)
     }
 }

@@ -20,30 +20,33 @@
 		<div>
 			<h3>${post.title}</h3>
 		</div>
-			<g:link controller="postpage" action="edit" id="${post.id}"><button type="button">Edit</button></g:link><br/>
-			<div id="post_content">
-				 ${post.content}
-			</div><br/>
+		<g:link controller="postpage" action="edit" id="${post.id}"><button type="button">Edit</button></g:link><br/>
+		<div id="post_content">
+			${post.content}
+		</div><br/>
 
-			<!--g:actionSubmit value="Create Comment" action="" / -->
-			<table id="special_comment_table">
-				<th>List of Comments</th>
-				<tbody>
-					
-				</tbody>
-			</table><br/>
+		<!--g:actionSubmit value="Create Comment" action="" / -->
+		<table id="special_comment_table">
+			<thead>List of Comments</thead>
+			<tbody>
+				<g:each in="${comments}" var="comment">
+						<tr>
+							<td>${comment.author}</td>
+							<td>${comment.comment}</td>		
+						</tr>
+					</g:each>
+				<div id="comment_list"></div>
+			</tbody>
+		</table><br/>
 
-			<h5>Create Comment</h5><br/>
+		<h5>Create Comment</h5><br/>
 
-				<g:form  action="addComment">
-					<g:hiddenField name="postId" value="${post.id}"/>
-					Author: <input type="text" name="author"/><br/>
-					Comment: <input type="text" name="comment"/><br/>
-					<g:submitToRemote value='Add Comment'url="[controller: 'comment', action:'addComment']" update="comment_list"/>
-				</g:form>	
-		
-				<div id="comment_list">	
-				</div>
-			</div>
+		<g:form  action="addComment">
+			<g:hiddenField name="postId" value="${post.id}"/>
+			Author: <input type="text" name="author"/><br/>
+			Comment: <textArea type="text" name="comment"/></textArea><br/>
+			<g:submitToRemote value='Add Comment'url="[controller: 'comment', action:'addComment']" update="comment_list"/>
+		</g:form>	
+	</div>
 </body>
 </html>

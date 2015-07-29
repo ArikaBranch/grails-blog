@@ -6,15 +6,6 @@ import grails.converters.JSON
 class PostpageController {
 
     //def scaffold = true
-    def getAllComments() {
-        def comments = Comment.list()
-        def response = []
-        comments.each {
-            response << "${it}"
-        }
-        render response as JSON
-    }
-
     def search() {
 
         Blogpage blog = Blogpage.get(params.blogId)
@@ -46,7 +37,8 @@ class PostpageController {
 
     def view() {
         def post = Postpage.get(params.id)
-        render(view:'view', model:[post:post])
+        def comments = Comment.findAllByPost(post, [sort:"dateCreated", order:"desc"])
+        render(view:'view', model:[post:post, comments:comments])
     }
 
     def save() {
