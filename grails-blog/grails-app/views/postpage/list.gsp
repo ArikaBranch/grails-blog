@@ -11,26 +11,34 @@
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 </head>
-<style type="text/css">
-	
-</style>
-
 <body>
-	<div>
+	<div class="row">
 		<g:form controller="postpage" action="search">
-			<g:link contoller="postpage" action="edit" params="[blogId:"${blog.id}"]"><button type=button>Create New Post</button></g:link>
-			<h3>${blog.title}</h3>
+			<g:link contoller="postpage" action="edit" params="[blogId:"${blog.id}"]"><button type="button" class="btn btn-primary col-xs-10 col-xs-offset-1">Create New Post</button></g:link>
+			<h3 class="col-xs-12 text-center">${blog.title}</h3>
 			<g:hiddenField name="blogId" value="${blog.id}"/>
-			<g:textField name="search" value="" />
-			<g:actionSubmit value="Search" action="search"/>
+			<div class="col-xs-4 col-xs-offset-4">
+				<g:textField name="search" value="" class="form-control"/>
+			</div>
+			<div class="col-xs-2">
+				<g:actionSubmit value="Search" action="search" class="btn"/>
+			</div>
 		</g:form>
-			<table id="special_post_table">
-				<label>List of Posts</label><br/>
+		<div class="col-xs-12">
+			<table id="special_post_table" class="table">
 				<thead>
-					<tr>Title</tr>
-					<tr>Teaser</tr>
-					<tr>LastUpdated</tr>
+					<tr>
+						<th>Title</th>
+						<th>Teaser</th>
+						<th>LastUpdated</th>
+					</tr>
 				</thead>
 				<tbody>
 					<g:each in="${postList}" var="post">
@@ -43,6 +51,7 @@
 				</tbody>
 			</table>
 			<g:paginate total="${postCount}" max="10" params="[blog:"${blog}"]"/>
+		</div>	
 	</div>
 </body>
 </html>

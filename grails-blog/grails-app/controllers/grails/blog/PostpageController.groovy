@@ -10,8 +10,9 @@ class PostpageController {
 
         Blogpage blog = Blogpage.get(params.blogId)
         def posts = Postpage.findAllByTitleLikeAndBlog("%"+params.search+"%", blog, [sort:"lastUpdated", order:"desc"])
+        int postCount = Postpage.countByTitleLikeAndBlog("%"+params.search+"%", blog)
         [postList:posts]
-        render(view:'list', model:[postList:posts, blog:blog])
+        render(view:'list', model:[postList:posts, blog:blog, postCount:postCount])
     }
 
     def list() {
