@@ -1,10 +1,14 @@
 package grails.blog
 
+
 class CommentController {
 
     def addComment() {
-    	//def comment = new Comment(post1,"John", "test comment").save();
+    	Postpage post = Postpage.get(params.postId)
+    	def comment = new Comment(post:post, 
+    							  author:params.author, 
+    							  comment:params.comment).save(failOnError: true);
     	//render(template:"commentTemplate", model:[comment:comment])
-    	"Hello"
+    render("hello")
     }
 }

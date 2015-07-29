@@ -50,13 +50,11 @@ class PostpageController {
     }
 
     def save() {
-        //hack job here, may get refactored - necessary to get the post to save on edit
-        def editPost = params
         def post = loadPost(params.id)
-        post.blog = Blogpage.findById(editPost.blogId)
-        post.title = editPost.postTitle
-        post.content = editPost.post
-        post.teaser = editPost.postTeaser
+        post.blog = Blogpage.findById(params.blogId)
+        post.title = params.postTitle
+        post.content = params.post
+        post.teaser = params.postTeaser
         post.lastUpdated = new Date()
 
         if(post.save(failOnError:true, flush:true)) {
