@@ -18,8 +18,9 @@ class PostpageController {
 
         Blogpage blog = Blogpage.get(params.id)
         def posts = Postpage.findAllByBlog(blog, [max:10, sort:"lastUpdated", order:"desc"])
+        int postCount = Postpage.countByBlog(blog)
         [postList:posts]
-        render(view:'list', model:[postList:posts, blog:blog])
+        render(view:'list', model:[postList:posts, blog:blog, postCount:postCount])
     }
 
     def success() {

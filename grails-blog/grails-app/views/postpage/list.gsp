@@ -13,7 +13,7 @@
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
 </head>
 <style type="text/css">
-	img { max-width: 100% }
+	
 </style>
 
 <body>
@@ -37,11 +37,12 @@
 						<tr>
 							<td><g:link controller="postpage" action="view" id="${post.id}" params="[title: post.title, content:post.content]">${post.title}</g:link></td>
 							<td>${post.teaser}</td>
-							<td>${post.lastUpdated}</td>		
+							<td>${post.lastUpdated}</td>		 
 						</tr>
 					</g:each>
 				</tbody>
 			</table>
+			<g:paginate total="${postCount}" max="10" params="[blog:"${blog}"]"/>
 	</div>
 </body>
 </html>

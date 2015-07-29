@@ -99,6 +99,18 @@ class BootStrap {
 					content:"BootStrap content10").save(failOnError: true);
 		sleep(10)
 
+		new Postpage(blog: blog4,
+					title:"BootStrap Post11",
+					teaser:"BootStrap teaser11",
+					content:"BootStrap content11").save(failOnError: true);
+		sleep(10)
+
+		new Postpage(blog: blog4,
+					title:"BootStrap Post12",
+					teaser:"BootStrap teaser12",
+					content:"BootStrap content12").save(failOnError: true);
+		sleep(10)
+
 		new Comment(post: post1,
 					author:"John",
 					comment:"test comment").save(failOnError: true);
