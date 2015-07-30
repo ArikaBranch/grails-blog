@@ -29,7 +29,7 @@
 		<g:hiddenField name="blogId" value="${blog.id}"/>
 		<div>
 			<div class="col-xs-4 col-xs-offset-4">
-				<g:textField name="search" value="" class="form-control"/>
+				<g:textField name="search" value="${params.search}" class="form-control"/>
 			</div>
 			<div class="col-xs-2">
 				<g:actionSubmit value="Search" action="search" class="btn"/>
@@ -49,7 +49,7 @@
 					</g:each>
 				</tbody>
 			</table>
-			<g:paginate total="${postCount}" max="10" params="[id:"${blog.id}"]"/>
+			<g:paginate total="${postCount}" max="10" params="[id:"${blog.id}", search:"${params.search}"]"/>
 		</div>	
 	</div>
 </body>
