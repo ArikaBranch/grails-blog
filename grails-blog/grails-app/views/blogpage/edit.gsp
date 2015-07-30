@@ -17,11 +17,10 @@
 
 <body>
 	<div>
-
-		<g:form controller='blogpage'>
+	<g:form controller='blogpage' action="save">
 		<h3>My Blog Site</h3>
-		<g:textField name="blogTitle" rows="5" cols="40"/>
-		<g:actionSubmit value="Submit" action="list" />
+		<g:textField name="blogTitle"/>
+		<g:actionSubmit value="Submit" action="save" />
 	</g:form>
 		
 	</div>

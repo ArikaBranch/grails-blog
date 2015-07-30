@@ -20,7 +20,7 @@
 </head>
 <body>
 	<div class="row">
-		<g:form controller="postpage" action="search">
+		<g:form controller="postpage" action="search" params="[id:"${blog.id}"]">
 			<g:link contoller="postpage" action="edit" params="[blogId:"${blog.id}"]"><button type="button" class="btn btn-primary col-xs-10 col-xs-offset-1">Create New Post</button></g:link>
 			<h3 class="col-xs-12 text-center">${blog.title}</h3>
 			<g:hiddenField name="blogId" value="${blog.id}"/>
@@ -29,17 +29,10 @@
 			</div>
 			<div class="col-xs-2">
 				<g:actionSubmit value="Search" action="search" class="btn"/>
-			</div>
+			</div>	
 		</g:form>
 		<div class="col-xs-12">
-			<table id="special_post_table" class="table">
-				<thead>
-					<tr>
-						<th>Title</th>
-						<th>Teaser</th>
-						<th>LastUpdated</th>
-					</tr>
-				</thead>
+			<table id="special_post_table" class="table text-center">
 				<tbody>
 					<g:each in="${postList}" var="post">
 						<tr>
@@ -50,7 +43,7 @@
 					</g:each>
 				</tbody>
 			</table>
-			<g:paginate total="${postCount}" max="10" params="[blog:"${blog}"]"/>
+			<g:paginate total="${postCount}" max="10" params="[id:"${blog.id}"]"/>
 		</div>	
 	</div>
 </body>

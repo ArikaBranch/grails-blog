@@ -6,7 +6,7 @@ class PostListPage
   page_url "http://localhost:8080/grails-blog/postpage/list"
 
   table(:post_list_table, :id => 'special_post_table')
-  link(:click_post_link, :text => "BootStrap Post1")
+  link(:click_post_link, :text => "BootStrap Post4")
   button(:click_search, :text => "Search")
   button(:click_create_new_post_button, :text => "Create New Post")
   text_field(:input_search, :id => "search")

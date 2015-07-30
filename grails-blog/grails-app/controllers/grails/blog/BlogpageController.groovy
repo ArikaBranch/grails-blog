@@ -19,26 +19,24 @@ class BlogpageController {
     	render(view:'list', model:[blogList:Blogpage.list(sort:'lastUpdated', order:'desc'), blogCount:Blogpage.count()])  
     }
 
-    private loadBlog(id) {
-    	def blog = new Blogpage();
-    	if(id) {
-    		blog = Blogpage.get(id)
-    	}
-    	return blog
-    }
-
     def save() {
-    	def editBlog = params
  		def blog = loadBlog(params.id)
- 		blog.title = editBlog.title
+ 		blog.title = params.blogTitle
 
- 		if(blog.save(true)) {
- 			redirect(action:'view')
- 		} else {
- 			redirect(action:'edit')
- 		}
+ 		if(blog.save(failOnError:true, flush:true)) {
+            redirect(action:'list')
+        } else {
+            blog.errors.allErrors()
+        }
     } 
-
+    
+    private loadBlog(id) {
+        def blog = new Blogpage();
+        if(id) {
+            blog = Blogpage.get(id)
+        }
+        return blog
+    }
    
 }
 

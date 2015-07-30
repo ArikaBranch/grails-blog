@@ -45,7 +45,7 @@ def click_search_button
   end
 end
 
-def get_post_titles
+def get_posts
   on_page PostListPage do |page|
     return page.post_list
   end

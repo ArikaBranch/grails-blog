@@ -25,7 +25,7 @@
 			<p id="success">
 				<h2>Your "${post.title}" post was an unmitigated success!</h2>
 			</p>
-			<g:link value="OK" url="[controller:'postpage', action:'list', id: post.blog.id]" ><button type="button" id="ok" class="btn btn-warning col-xs-2 col-xs-offset-5">OK</button></g:link>
+			<g:link value="OK" url="[controller:'postpage', action:'list', id: post.blog.id]" ><button type="button" id="ok" class="btn btn-success col-xs-2 col-xs-offset-5">OK</button></g:link>
 		<div>
 	</div>
 </body>

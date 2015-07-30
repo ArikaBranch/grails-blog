@@ -2,14 +2,13 @@ package grails.blog
 import java.util.Date
 import grails.converters.JSON
 
-
 class PostpageController {
 
     //def scaffold = true
     def search() {
 
-        Blogpage blog = Blogpage.get(params.blogId)
-        def posts = Postpage.findAllByTitleLikeAndBlog("%"+params.search+"%", blog, [sort:"lastUpdated", order:"desc"])
+        Blogpage blog = Blogpage.get(params.id)
+        def posts = Postpage.findAllByTitleLikeAndBlog("%"+params.search+"%", blog, [max:10, sort:"lastUpdated", order:"desc", offset:params.offset])
         int postCount = Postpage.countByTitleLikeAndBlog("%"+params.search+"%", blog)
         [postList:posts]
         render(view:'list', model:[postList:posts, blog:blog, postCount:postCount])
@@ -18,7 +17,7 @@ class PostpageController {
     def list() {
 
         Blogpage blog = Blogpage.get(params.id)
-        def posts = Postpage.findAllByBlog(blog, [max:10, sort:"lastUpdated", order:"desc"])
+        def posts = Postpage.findAllByBlog(blog, [max:10, sort:"lastUpdated", order:"desc", offset:params.offset])
         int postCount = Postpage.countByBlog(blog)
         [postList:posts]
         render(view:'list', model:[postList:posts, blog:blog, postCount:postCount])

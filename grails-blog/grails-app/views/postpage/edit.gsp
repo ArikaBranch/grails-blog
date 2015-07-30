@@ -27,6 +27,11 @@
 			<g:actionSubmit id="submit_new_post" value="Submit" action="save" class="btn btn-primary col-xs-10 col-xs-offset-1"></g:actionSubmit>
 	</div>
 	<div class="row">
+		<div class="col-xs-12">
+			
+		</div>
+	</div>
+	<div class="row">
 		<g:hiddenField name="blogId" value="${post.blog.id}"/>
 		<g:hiddenField name="id" value="${post.id}"/>
 		<div class="col-xs-6 col-xs-offset-2">

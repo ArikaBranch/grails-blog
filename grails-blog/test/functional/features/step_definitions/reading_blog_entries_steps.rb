@@ -9,7 +9,7 @@ When (/^I visit the blog for my favorite blogger$/) do
 end
 
 Then (/^I should see a summary of my favorite blogger's 10 most recent posts in reverse order$/)do
-  expect(get_tenth_post_title).to eq("BootStrap Post1")
+  expect(get_tenth_post_title).to eq("BootStrap Post4")
   expect(eleventh_post_exists?).to be false
 end
 
@@ -21,7 +21,7 @@ When (/^I choose a blog post$/) do
 end
 
 Then (/^I should see the blog post$/) do
-  expect(get_post_content.text.include?("BootStrap content1")).to be true
+  expect(get_post_content.text.include?("BootStrap content4")).to be true
 end
 
 #Scenario: Search for Blog Post
@@ -33,7 +33,7 @@ When (/^I search for a blog post$/) do
 end
 
 Then (/I should see posts with that value in the title$/) do
-  get_post_titles.each do |post|
+  get_posts.each do |post|
     #page object adding additional table rows that were empty ensuring content exisits
     if(post != "")
       expect(post.include?("BootStrap Post1")).to be true
