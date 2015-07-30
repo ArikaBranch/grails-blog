@@ -9,7 +9,8 @@ class CommentController {
     	Postpage post = Postpage.get(params.postId)
     	def comment = new Comment(post:post, 
     							  author:params.author, 
-    							  comment:params.comment).save(failOnError: true);
+    							  comment:params.comment).save(failOnError: true)
+    	post.addToComments(comment).save(flush:true, failOnError: true)
     	render(template:"commentTemplate", model:[comment:comment])
     }
 }

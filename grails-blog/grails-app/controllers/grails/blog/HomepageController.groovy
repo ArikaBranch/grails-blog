@@ -2,7 +2,7 @@ package grails.blog
 
 class HomepageController {
 
-	def scaffold = true
+	static defaultAction = 'login'
 	
     def login = {
     	render(view:'login')

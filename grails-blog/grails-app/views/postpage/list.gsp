@@ -42,7 +42,7 @@
 				<tbody>
 					<g:each in="${postList}" var="post">
 						<tr>
-							<td><g:link controller="postpage" action="view" id="${post.id}" params="[title: post.title, content:post.content]">${post.title}</g:link></td>
+							<td><g:link controller="postpage" action="view"  params="[title: post.title, id:post.id]">${post.title}</g:link></td>
 							<td>${post.teaser}</td>
 							<td>${post.lastUpdated}</td>		 
 						</tr>
