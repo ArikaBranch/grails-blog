@@ -7,6 +7,7 @@ class UrlMappings {
             }
         }
 
+        "/postpage/view/$id?/$title?"(controller:'postpage', action:'view')
         "/"(view:"/index")
         "500"(view:'/error')
 	}
