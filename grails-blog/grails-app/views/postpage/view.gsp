@@ -2,14 +2,6 @@
 <html>
 <head>
 <title></title>
-<!-- <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script
@@ -67,7 +59,7 @@
 		</div>
 		<div class="row">
 			<div>
-				<g:submitToRemote value='Add Comment'url="[controller: 'comment', action:'addComment']" update="add_comment" class="btn col-xs-offset-1"/>
+				<g:submitToRemote id="add_comment" value='Add Comment'url="[controller: 'comment', action:'addComment']" update="add_comment" class="btn col-xs-offset-1"/>
 			</div>
 		</div>
 		</g:form>	

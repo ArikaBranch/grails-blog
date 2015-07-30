@@ -54,7 +54,7 @@ class BootStrap {
 
 		sleep(10)
 
-		new Postpage(blog: blog4,
+		def post4 = new Postpage(blog: blog4,
 					title:"BootStrap Post4",
 					teaser:"BootStrap teaser4",
 					content:"BootStrap content4").save(failOnError: true);
@@ -111,12 +111,12 @@ class BootStrap {
 					content:"BootStrap content12").save(failOnError: true);
 		sleep(10)
 
-		new Comment(post: post1,
+		new Comment(post: post4,
 					author:"John",
 					comment:"test comment").save(failOnError: true);
 		sleep(10)
 
-		new Comment(post: post1,
+		new Comment(post: post4,
 					author:"John",
 					comment:"test comment2").save(failOnError: true);
 		

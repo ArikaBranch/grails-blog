@@ -16,13 +16,20 @@
 </head>
 
 <body>
-	<div>
-	<g:form controller='blogpage' action="save">
-		<h3>My Blog Site</h3>
-		<g:textField name="blogTitle"/>
-		<g:actionSubmit value="Submit" action="save" />
-	</g:form>
-		
+	<div class="row">
+		<div class="col-xs-12 text-center">
+			<h1>My Blog Site</h1>
+		</div>
+	</div>
+		<g:form controller='blogpage' action="save">
+			<div class="row">
+				<div class="col-xs-4 col-xs-offset-4">
+					<g:textField placeHolder="New Blog Title" name="blogTitle" class="form-control"/>
+				</div>
+				<g:actionSubmit value="Submit" action="save" class="btn btn-primary"/>
+			</div>
+			
+		</g:form>	
 	</div>
 </body>
 </html>

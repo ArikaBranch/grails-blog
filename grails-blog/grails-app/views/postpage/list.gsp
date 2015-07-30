@@ -19,18 +19,24 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 </head>
 <body>
-	<div class="row">
-		<g:form controller="postpage" action="search" params="[id:"${blog.id}"]">
+	<g:form controller="postpage" action="search" params="[id:"${blog.id}"]">
+		<div class="row">
 			<g:link contoller="postpage" action="edit" params="[blogId:"${blog.id}"]"><button type="button" class="btn btn-primary col-xs-10 col-xs-offset-1">Create New Post</button></g:link>
-			<h3 class="col-xs-12 text-center">${blog.title}</h3>
-			<g:hiddenField name="blogId" value="${blog.id}"/>
+		</div>
+		<div class="row">
+			<h1 class="col-xs-12 text-center">${blog.title}</h1>
+		</div>
+		<g:hiddenField name="blogId" value="${blog.id}"/>
+		<div>
 			<div class="col-xs-4 col-xs-offset-4">
 				<g:textField name="search" value="" class="form-control"/>
 			</div>
 			<div class="col-xs-2">
 				<g:actionSubmit value="Search" action="search" class="btn"/>
 			</div>	
-		</g:form>
+		</div>		
+	</g:form>
+	<div class="row">
 		<div class="col-xs-12">
 			<table id="special_post_table" class="table text-center">
 				<tbody>

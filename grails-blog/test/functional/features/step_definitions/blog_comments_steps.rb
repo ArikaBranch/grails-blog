@@ -9,13 +9,14 @@
 #Given I visit the blog for my favorite blogger
 #When I choose a blog post
 Then (/^I should see comments left by other readers$/) do
-  expect(get_first_comment).to eq("first comment")
+  expect(get_first_comment.text.include?("test comment2")).to be true
 end
 
 # Use AJAX for this
 # do not want the page to refresh
 #Scenario: Leave a comment (AJAX)
 Given (/^I am reading a blog post from my favorite blogger$/) do
+  go_to_blog_view_page
   go_to_post_list_page
   click_a_blog_post
 end
@@ -25,5 +26,5 @@ When (/^I add my genius comment to the blog post$/) do
 end
 
 Then(/^my genius comment is at the top of the blog post comments$/) do
-  expect(get_first_comment).to eq("second comment")
+  expect(get_first_comment.text.include?("second comment")).to be true
 end

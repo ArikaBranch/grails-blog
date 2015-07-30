@@ -103,9 +103,9 @@ end
 
 def add_my_comment
   on_page PostViewPage do |page|
+    page.input_author_info="Author"
+    page.input_comment="second comment"
     page.click_add_comment_button
-    page.input_author_info("Author2")
-    page.input_comment("second comment")
   end
 end
 
