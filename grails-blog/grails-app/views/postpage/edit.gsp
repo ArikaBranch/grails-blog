@@ -24,11 +24,8 @@
 <body>
 	<g:form controller="postpage">
 	<div class="row">
-			<g:actionSubmit id="submit_new_post" value="Submit" action="save" class="btn btn-primary col-xs-10 col-xs-offset-1"></g:actionSubmit>
-	</div>
-	<div class="row">
 		<div class="col-xs-12">
-			
+			<h1>${post.blog.title}</h1>
 		</div>
 	</div>
 	<div class="row">
@@ -47,6 +44,9 @@
 		<div class="col-xs-8 col-xs-offset-2">
 			Content: <g:textArea name="post" value="${post.content}" rows="5" cols="40" class="form-control"/>
 		</div>
+	</div>
+	<div class="row">
+			<g:actionSubmit id="submit_new_post" value="Submit" action="save" class="btn btn-primary col-xs-4 col-xs-offset-4"></g:actionSubmit>
 	</div>
 	</g:form>
 </body>

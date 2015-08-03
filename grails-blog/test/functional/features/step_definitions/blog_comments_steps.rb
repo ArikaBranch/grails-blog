@@ -9,7 +9,7 @@
 #Given I visit the blog for my favorite blogger
 #When I choose a blog post
 Then (/^I should see comments left by other readers$/) do
-  expect(get_first_comment.text.include?("test comment2")).to be true
+  expect(get_first_comment_author.text.include?("Author2")).to be true
 end
 
 # Use AJAX for this
@@ -26,5 +26,5 @@ When (/^I add my genius comment to the blog post$/) do
 end
 
 Then(/^my genius comment is at the top of the blog post comments$/) do
-  expect(get_first_comment.text.include?("second comment")).to be true
+  expect(get_first_comment_author.text.include?("Author3")).to be true
 end

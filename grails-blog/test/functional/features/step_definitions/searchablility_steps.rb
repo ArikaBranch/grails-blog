@@ -9,5 +9,5 @@
 #When (/^I choose a blog post$/) do
 
 Then (/^the url should contain information about the post$/) do
-  expect(post_page_url).to eq("http://localhost:8080/grails-blog/blogger/post1")
+  expect(post_page_url).to eq("http://localhost:8080/grails-blog/postpage/view/5/BootStrap%20Post4")
 end

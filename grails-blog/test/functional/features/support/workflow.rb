@@ -95,16 +95,18 @@ def post_page_url
   @browser.url
 end
 
-def get_first_comment
+def get_first_comment_author
   on_page PostViewPage do |page|
-    page.first_comment
+    page.first_comment_author_element.when_present(timeout=5) do
+      page.first_comment_author
+    end
   end
 end
 
 def add_my_comment
   on_page PostViewPage do |page|
-    page.input_author_info="Author"
-    page.input_comment="second comment"
+    page.input_author_info="Author3"
+    page.input_comment="test comment3"
     page.click_add_comment_button
   end
 end

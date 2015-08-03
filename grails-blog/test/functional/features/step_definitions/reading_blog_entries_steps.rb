@@ -9,7 +9,8 @@ When (/^I visit the blog for my favorite blogger$/) do
 end
 
 Then (/^I should see a summary of my favorite blogger's 10 most recent posts in reverse order$/)do
-  expect(get_tenth_post_title).to eq("BootStrap Post3")
+  expect(get_tenth_post_title).not_to eq("BootStrap Post9")
+  expect(get_tenth_post_title).to eq("BootStrap Post4")
   expect(eleventh_post_exists?).to be false
 end
 

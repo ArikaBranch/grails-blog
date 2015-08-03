@@ -112,12 +112,12 @@ class BootStrap {
 		sleep(10)
 
 		new Comment(post: post4,
-					author:"John",
-					comment:"test comment").save(failOnError: true);
+					author:"Author1",
+					comment:"test comment1").save(failOnError: true);
 		sleep(10)
 
 		new Comment(post: post4,
-					author:"John",
+					author:"Author2",
 					comment:"test comment2").save(failOnError: true);
 		
     }

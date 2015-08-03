@@ -8,17 +8,21 @@
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<style type="text/css">
+	p {
+    	word-wrap: break-word;
+	}
+</style>
 </head>
 
 <body>
-	<div class="row">
-		
-		<g:link controller="postpage" action="edit" id="${post.id}"><button type="button" class="btn btn-primary col-xs-10 col-xs-offset-1">Edit</button></g:link>
-	</div>
 	<div class="row">	
 		<div class="col-xs-12 text-center">
 			<h1>${post.title}</h1>
 		</div>
+	</div>
+	<div class="row">
+		<g:link controller="postpage" action="edit" id="${post.id}"><button type="button" class="btn btn-primary col-xs-4 col-xs-offset-4">Edit</button></g:link>
 	</div>
 	<div class="row">
 		<div  id="post_content" class="col-xs-12 text-center">
@@ -30,21 +34,24 @@
 		<h3>Comments</h3>
 		<hr/>
 	</div>
-		<div id="add_comment"></div>
-		<g:each in="${comments}" var="comment">
-			<div class="row">	
-				<div class="col-xs-12">
-					<div class="col-xs-2 col-xs-offset-3">
-						${comment?.author}
-					</div> 
-					<div class="col-xs-6  col-xs-offset-1">
-						${comment?.comment}
+		<div id="add_comment_location">
+			<g:each in="${comments}" var="comment" status="i">
+				<div class="row">	
+					<div class="col-xs-12">
+						<div id="comment${i}_author" class="col-xs-2 col-xs-offset-3">
+							Author: ${comment?.author}
+						</div> 
+						<div class="col-xs-6  col-xs-offset-1">
+							<p>
+								Comment: ${comment?.comment}
+							</p>
+						</div>
+						<br/>
 					</div>
-					<br/>
-					<hr/>
 				</div>
-			</div>
-		</g:each>	
+			</g:each>
+		</div>
+		<hr/>		
 		<g:form  action="addComment">
 			<g:hiddenField name="postId" value="${post.id}"/>
 		<div class="row">	
@@ -59,7 +66,7 @@
 		</div>
 		<div class="row">
 			<div>
-				<g:submitToRemote id="add_comment" value='Add Comment'url="[controller: 'comment', action:'addComment']" update="add_comment" class="btn col-xs-offset-1"/>
+				<g:submitToRemote id="add_comment" value='Add Comment' url="[controller: 'comment', action:'addComment']" update="add_comment_location" class="btn col-xs-offset-1"/>
 			</div>
 		</div>
 		</g:form>	

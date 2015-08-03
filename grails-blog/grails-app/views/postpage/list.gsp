@@ -21,10 +21,10 @@
 <body>
 	<g:form controller="postpage" action="search" params="[id:"${blog.id}"]">
 		<div class="row">
-			<g:link contoller="postpage" action="edit" params="[blogId:"${blog.id}"]"><button type="button" class="btn btn-primary col-xs-10 col-xs-offset-1">Create New Post</button></g:link>
+			<h1 class="col-xs-12 text-center">${blog.title}</h1>
 		</div>
 		<div class="row">
-			<h1 class="col-xs-12 text-center">${blog.title}</h1>
+			<g:link contoller="postpage" action="edit" params="[blogId:"${blog.id}"]"><button type="button" class="btn btn-primary col-xs-4 col-xs-offset-4">Create New Post</button></g:link>
 		</div>
 		<g:hiddenField name="blogId" value="${blog.id}"/>
 		<div>

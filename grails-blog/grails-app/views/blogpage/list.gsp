@@ -20,15 +20,15 @@
 </head>
 
 <body>
-	<div class="row">
-		<g:form controller="blogpage">
-		<div >
-			<g:actionSubmit value="Create" action="edit" class="btn btn-primary col-xs-10 col-xs-offset-1"/>
-		</div>
-	</div>
+	<g:form controller="blogpage">
 	<div class="row">
 		<div class="col-xs-12 text-center">
 			<h1>My Blog Site</h1>
+		</div>
+	</div>
+	<div class="row">	
+		<div >
+			<g:actionSubmit value="Create" action="edit" class="btn btn-primary col-xs-4 col-xs-offset-4"/>
 		</div>
 	</div>	
 		<table id="special_post_table" class="table text-center">
@@ -38,9 +38,8 @@
 					</g:each>
 				</tbody>
 		</table>
-	</div>	
-		
-		</g:form>
+	</div>		
+	</g:form>
 		
 	</div>
 </body>
